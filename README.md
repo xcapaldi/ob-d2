@@ -57,3 +57,49 @@ clouds: {
   <img height="700px" alt="complex" src="complex.png">
 </div>
 
+## Installation
+### manual
+Download `ob-d2.el` from this repository to your loadpath and include `(require 'ob-d2)` in your `init.el` file.
+
+You can (and should) use the following `use-package` declaration:
+
+```
+(use-package ob-d2
+  :ensure nil
+  :load-path "~/path/to/ob-d2.el")
+```
+
+### straight.el
+Alternatively if you use [straight.el](https://github.com/raxod502/straight.el) as your package manager, you can point it directly to the repository.
+
+```
+(use-package ob-d2
+  :straight (ob-d2 :type git :host github :repo "xcapaldi/ob-d2"))
+```
+
+## Configure org-mode for d2 support
+After loading `ob-d2` you'll need to enable d2 as a supported language in org-mode.
+You should add it to `org-babel-load-languages`.
+For example:
+
+```
+(org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (python . t)
+     (d2 . t)))
+```
+
+If you use `use-package` you could use something like this:
+
+```
+(use-package org
+  :after ob-d2
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t)
+     (python . t)
+     (d2 . t))))
+```
+
