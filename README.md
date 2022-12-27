@@ -1,7 +1,7 @@
 # ob-d2
 
 ## Introduction
-`ob-go` enables [Org-Babel](http://orgmode.org/worg/org-contrib/babel/intro.html) support for evaluating [d2](https://d2lang.com/tour/intro/) code.
+`ob-d2` enables [Org-Babel](http://orgmode.org/worg/org-contrib/babel/intro.html) support for evaluating [d2](https://d2lang.com/tour/intro/) code.
 It was created based on the usage of [ob-ditaa](https://orgmode.org/worg//org-contrib/babel/languages/ob-doc-ditaa.html).
 The d2 code is compiled via the `d2` command.
 
