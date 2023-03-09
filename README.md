@@ -61,16 +61,16 @@ clouds: {
 ### manual
 Download `ob-d2.el` from this repository to your loadpath and include `(require 'ob-d2)` in your `init.el` file.
 
-You can (and should) use the following `use-package` declaration:
-
-```
-(use-package ob-d2
-  :ensure nil
-  :load-path "~/path/to/ob-d2.el")
-```
-
 ### straight.el
 Alternatively if you use [straight.el](https://github.com/raxod502/straight.el) as your package manager, you can point it directly to the repository.
+
+```
+(straight-use-package
+ '(ob-d2 :type git :host github :repo "xcapaldi/ob-d2"))
+```
+
+Or in combination with `use-package`:
+
 
 ```
 (use-package ob-d2
