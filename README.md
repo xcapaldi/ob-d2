@@ -6,7 +6,7 @@ It was created based on the usage of [ob-ditaa](https://orgmode.org/worg//org-co
 The d2 code is compiled via the `d2` command.
 
 ```
-#+BEGIN_ d2 :file hello.png
+#+BEGIN_SRC d2 :file hello.png
 x -> y: hello world
 #+END_SRC
 ```
