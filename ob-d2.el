@@ -3,11 +3,11 @@
 ;; Copyright (C) 2022-2023 Xavier Capaldi
 
 ;; Author: Xavier Capaldi
-;; Keywords: d2, literate programming, reproducible research
-;; Homepage: http://orgmode.org
-;; Version: 0.01
-
-;;; License:
+;; URL: https://github.com/xcapaldi/ob-d2
+;; Keywords: org babel d2 literate-programming
+;; Version: 0.0.2
+;; Created: 26th Dec 2022
+;; Package-Requires: ((org "8"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -55,38 +55,37 @@
 (require 'ob)
 (require 'org-compat)
 
-;; optionally define a file extension for this language
 (add-to-list 'org-babel-tangle-lang-exts '("d2" . "d2"))
 
 (defvar org-babel-default-header-args:d2
   '((:results . "file")
     (:exports . "results"))
-  "Default arguments for evaluating a d2 source block.")
+  "Default arguments for evaluating a D2 source block.")
 
 (defvar org-babel-d2-command "d2"
-  "The d2 command to use to compile and run the d2 code.")
+  "The d2 command to use to compile and run the D2 code.")
 
 (defun org-babel-execute:d2 (body params)
-  "Execute a block of d2 code with org-babel.
+  "Execute a BODY of D2 code with org-babel and additional PARAMS.
 This function is called by `org-babel-execute-src-block'."
   (let* ((out-file (or (cdr (assq :file params))
 		       (error
-			"d2 code block requires :file header argument")))
+			"D2 code block requires :file header argument")))
 	 (flags (cdr (assq :flags params)))
 	 (in-file (org-babel-temp-file "d2-src-" ".d2"))
 	 (cmd (concat org-babel-d2-command
 		          " " flags
                   " " (org-babel-process-file-name in-file)
                   " " (org-babel-process-file-name out-file))))
-    
+
     (with-temp-file in-file (insert body))
     (message cmd)
     (shell-command cmd)
     nil))
 
 (defun org-babel-prep-session:d2 (session params)
-  "Return an error because d2 does not support sessions."
-  (error "d2 does not support sessions"))
+  "Return an error because D2 does not support SESSIONs (with or without PARAMS)."
+  (error "D2 does not support sessions"))
 
 (provide 'ob-d2)
 
