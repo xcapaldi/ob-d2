@@ -1,13 +1,13 @@
-;;; ob-d2.el --- org-babel functions for d2
+;;; ob-d2.el --- Org-babel functions for d2  -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2022-2023 Xavier Capaldi
 
 ;; Author: Xavier Capaldi
 ;; URL: https://github.com/xcapaldi/ob-d2
-;; Keywords: org babel d2 literate-programming
-;; Version: 0.0.2
+;; Keywords: languages
+;; Version: 0.0.3
 ;; Created: 26th Dec 2022
-;; Package-Requires: ((org "8"))
+;; Package-Requires: ((emacs "24.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -62,7 +62,7 @@
     (:exports . "results"))
   "Default arguments for evaluating a D2 source block.")
 
-(defvar org-babel-d2-command "d2"
+(defvar ob-d2-command "d2"
   "The d2 command to use to compile and run the D2 code.")
 
 (defun org-babel-execute:d2 (body params)
@@ -73,7 +73,7 @@ This function is called by `org-babel-execute-src-block'."
 			"D2 code block requires :file header argument")))
 	 (flags (cdr (assq :flags params)))
 	 (in-file (org-babel-temp-file "d2-src-" ".d2"))
-	 (cmd (concat org-babel-d2-command
+	 (cmd (concat ob-d2-command
 		          " " flags
                   " " (org-babel-process-file-name in-file)
                   " " (org-babel-process-file-name out-file))))
@@ -83,10 +83,9 @@ This function is called by `org-babel-execute-src-block'."
     (shell-command cmd)
     nil))
 
-(defun org-babel-prep-session:d2 (session params)
-  "Return an error because D2 does not support SESSIONs (with or without PARAMS)."
+(defun org-babel-prep-session:d2 (&rest _args)
+  "Return an error because D2 does not support sessions."
   (error "D2 does not support sessions"))
 
 (provide 'ob-d2)
-
 ;;; ob-d2.el ends here
