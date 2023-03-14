@@ -41,7 +41,7 @@
 ;;; Requirements:
 
 ;; - You must have d2 installed and d2 should be in your `exec-path'. If not,
-;;   feel free to modify `org-babel-d2-command' to the location of your d2
+;;   feel free to modify `ob-d2-command' to the location of your d2
 ;;   command.
 ;;
 ;; - `d2-mode' is also recommended for syntax highlighting and formatting,
