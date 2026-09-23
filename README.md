@@ -1,8 +1,10 @@
+
+
 [![MELPA](https://melpa.org/packages/ob-d2-badge.svg)](https://melpa.org/#/ob-d2)
 
 ## Introduction
 `ob-d2` enables [Org-Babel](http://orgmode.org/worg/org-contrib/babel/intro.html) support for evaluating [D2](https://d2lang.com/tour/intro/) code.
-It was created based on the usage of [ob-ditaa](https://orgmode.org/worg//org-contrib/babel/languages/ob-doc-ditaa.html).
+It was created based on the usage of [ob-ditaa](https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-ditaa.html).
 The D2 code is compiled via the `d2` command.
 
 ```Org
